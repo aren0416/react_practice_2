@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
-import styled from "styled-components";
 import { movieApi } from "../../api";
 import { PageTitle } from "../PageTitle";
+import { MainBanner } from "./MainBanner";
 
 // console.log(movieApi.nowPlaying());
-
-const MainBanner = styled.div`
-  height: 80vh;
-`;
 
 export const Home = () => {
   const [nowPlaying, setNowPlaying] = useState();
@@ -27,15 +23,7 @@ export const Home = () => {
   return (
     <>
       <PageTitle title={"Home"} />
-      {nowPlaying ? (
-        <MainBanner
-          style={{
-            background: `url(https://image.tmdb.org/t/p/original${nowPlaying[0].backdrop_path}) no-repeat center / cover`,
-          }}
-        ></MainBanner>
-      ) : (
-        "Loading"
-      )}
+      {nowPlaying ? <MainBanner play={nowPlaying} /> : "Loading"}
     </>
   );
 };
