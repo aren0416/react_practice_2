@@ -1,4 +1,7 @@
+import { movieApi } from "../../api";
 import { PageTitle } from "../PageTitle";
+
+console.log(movieApi.nowPlaying());
 
 export const Home = () => {
   return (
